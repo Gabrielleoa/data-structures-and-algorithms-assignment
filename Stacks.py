@@ -1,9 +1,12 @@
 def is_balanced(expression):
     stack = []
+    brackets = {')', '(', '}','{',']','['}
     for char in expression:
-        if expression == '()' or "{.}" or '[]' : 
-            return True
-        elif expression == '{' and '[' and '(' and '}' and']' and')':
+        if char in brackets.values() : 
+            stack.append(char)
+        elif char in brackets.keys():
+            if not stack != brackets[char]:
+                return False
             return False
     return not stack
     
